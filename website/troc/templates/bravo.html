@@ -1,10 +1,56 @@
-<!
+<!DOCTYPE html>
     <html>
-        <head>
-            <meta charset="utf-8">
-            <title>Connecté</title>
-        </head>
-        <body>
-            <h1> Félicitations {{ login }} </h1>
-        </body>
+      <head>
+        <meta charset="utf-8">
+        <title>Swap.~.Troquez ! </title>
+
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/home.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+        <link rel="shortcut icon" href="/static/images/icone.ico" type="image/x-icon"/>
+        <link rel="icon" href="/static/images/icone.ico" type="image/x-icon"/>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand active" href="/troc/index">Swap</a>
+          </div>
+          <a href="/troc/index">
+            <img src="/static/images/icone.ico" style="width:40px;height:40px;" href="/troc/index">
+          </a>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+              <li class="navbar-warpper"><a href="index.html">Déposer un Troc</a></li>
+              <li class="navbar-warpper"><a href="index.html">Troquer</a></li>
+              <li class="navbar-warpper"><a href="index.html">Mes Trocs</a></li>
+              <li class="navbar-warpper"><a href="index.html">Mon Compte</a></li>
+              <li class="navbar-warpper"><a href="/troc/connexion">Se Connecter</a></li>
+
+            </ul>
+
+          </div>
+        </div>
+        </nav>
+        <body class="hero">
+              <div class="hero">
+                <h1>Félicitation {{login}} vous êtes désormais un Troqueur !</h1>
+                <h3> Découvrez les fonctionnalités du site tout de suite </h3>
+        <!--  <input type="submit" class="btn btn-hero btn-lg active" value="En Savoir Plus !" onclick="self.location.href='/troc/info'"> -->
+              </div>
+      
+
+        <script type=text/javascript  src="/static/js/script.js">
+        </script>
+      </body>
     </html>

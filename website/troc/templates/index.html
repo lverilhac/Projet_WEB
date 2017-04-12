@@ -2,17 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Swap.~.Troquez ! </title>
+    {% if user.username  %}
+    <title>Bienvenue {{ user.username }} ! </title>
+    {% else %}
+    <title>Swapez Vite! </title>
+    {%endif%}
 
     <!--<link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/home.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
+    <link rel="shortcut icon" href="/static/images/icone.ico" type="image/x-icon"/>
+    <link rel="icon" href="/static/images/icone.ico" type="image/x-icon"/>
     <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -22,24 +25,33 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand active" href="index.html">Swap</a>
+
+        <a href="/troc/index">
+          <img src="/static/images/icone.ico" style="width:40px;height:40px;" href="/troc/index">
+        </a>
+        <a class="navbar-brand active" href="/troc/index">Swap</a>
       </div>
+
       <div id="navbar" class="navbar-collapse collapse">
+
         <ul class="nav navbar-nav">
-          <li class="navbar-warpper"><a href="index.html">Déposer un Troc</a></li>
-          <li class="navbar-warpper"><a href="index.html">Troquer</a></li>
-          <li class="navbar-warpper"><a href="index.html">Mes Trocs</a></li>
-          <li class="navbar-warpper"><a href="index.html">Mon Compte</a></li>
+
+
+          {% if user.username  %}
+          <li class="navbar-warpper"><a href="#">Déposer un Troc</a></li>
+          <li class="navbar-warpper"><a href="/troc/troc_search">Troquer</a></li>
+          <li class="navbar-warpper"><a href="#">Mes Trocs</a></li>
+          <li class="navbar-warpper"><a href="/troc/compte">Mon Compte</a></li>
+          <li class="navbar-warpper"><a href="/troc/deconnexion">Se Déconnecter</a></li>
+          {% else %}
+          <li class="navbar-warpper"><a href="/troc/connexion">Déposer un Troc</a></li>
+          <li class="navbar-warpper"><a href="/troc/troc_search">Troquer</a></li>
+          <li class="navbar-warpper"><a href="/troc/connexion">Mes Trocs</a></li>
+          <li class="navbar-warpper"><a href="/troc/connexion">Mon Compte</a></li>
+          <li class="navbar-warpper"><a href="/troc/connexion">Se Connecter</a></li>
+          {%endif%}
+
         </ul>
-        <form class="navbar-form navbar-right" role="search" ng-controller="connexion_controller">
-          <div class="form-group">
-            <input type="text" class="form-control" name="username" placeholder="Username" ng-model="username">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="{{passwordEntry}}" ng-model="password">
-          </div>
-          <button type="submit" class="btn btn-default" ng-click="connexion()">Sign In</button>
-        </form>
       </div>
     </div>
     </nav>
@@ -47,18 +59,11 @@
 
   <body>
     <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
-      <!-- Overlay -->
-    <!--  <div class="overlay"></div>
-      <div class="hero">
-        <h1> {{ message1 }} </h1>
-        <p><i>{{ message2}} </i></p>
-      </div>-->
 
-      <!-- Indicators -->
       <ol class="carousel-indicators">
 
         <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#bs-carousel" data<link rel="stylesheet" href="css/home.css">-slide-to="1"></li>
+        <li data-target="#bs-carousel" data-slide-to="1"></li>
         <li data-target="#bs-carousel" data-slide-to="2"></li>
       </ol>
 
@@ -68,11 +73,14 @@
           <div class="slide-1"></div>
           <div class="hero">
             <hgroup>
-                <h1> {{ message1 }} </h1>
-                <p><i>{{ message2 }} </i></p>
-                <h3>{{ message3 }}</h3>
+              {% if user.username  %}
+              <h1>Bienvenue {{ user.username }} ! </h1>
+              {% else %}
+                <h1> Bienvenue sur Swap</h1>
+              {%endif%}
+
             </hgroup>
-            <a href="source/home.html" class="btn btn-hero btn-lg active" role="button" aria-pressed="true">{{message4}} >>></a>
+            <a href="source/home.html" class="btn btn-hero btn-lg active" role="button" aria-pressed="true">Troquez Maintenant !>>></a>
 
           </div>
         </div>
